@@ -2,6 +2,7 @@ import discord
 import os
 from discord.ext import commands
 import io, traceback, textwrap
+from contextlib import redirect_stdout
 bot = commands.Bot(command_prefix="xtreme ",description="IM ONLINE!")
 @bot.event
 async def on_ready():
