@@ -1,4 +1,5 @@
 import discord
+import os
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix="xtreme ",description="IM ONLINE!")
