@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 
+bot = commands.Bot(command_prefix="xtreme ",description="IM ONLINE!")
 @bot.event
 async def on_ready():
   await bot.change_presence(activity=discord.Game(name=str(f"Maplestory")))
