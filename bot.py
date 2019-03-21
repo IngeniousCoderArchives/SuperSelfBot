@@ -1,7 +1,7 @@
 import discord
 import os
 from discord.ext import commands
-import io, traceback
+import io, traceback, textwrap
 bot = commands.Bot(command_prefix="xtreme ",description="IM ONLINE!")
 @bot.event
 async def on_ready():
