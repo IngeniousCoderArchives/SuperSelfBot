@@ -54,7 +54,7 @@ async def embed(ctx,*,flags):
             # determine name of field
             name = flag.split(":")[1]
             name = name.split(">")[0]
-            embed.add_field(name=name,value=flag.split(">")[1])
+            embed.add_field(name=name,value=flag.split(">")[1],inline=False)
         if flag_name == "footer":
             if embed.footer.icon_url == discord.Embed.Empty:
                 embed.set_footer(text=flag_content)
