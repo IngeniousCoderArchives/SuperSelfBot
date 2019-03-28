@@ -13,7 +13,22 @@ async def on_ready():
 async def on_message(message):
   if message.author.id == int(os.environ.get("owner")): await bot.process_commands(message)
   
-
+@bot.comamnd()
+async def status(ctx,status,*,game:str=None):
+    """Sets the bot status.
+    status can be "online","idle","dnd","invisible","streaming" while game will be the display game.
+    "game" command will reset status to online.
+    """
+    if status.lower() == "online":
+        await bot.change_presence(activity=discord.Game(name=game))
+    if status.lower() == "idle":
+        await bot.change_presence(status=discord.Status.idle,activity=discord.Game(name=game))
+    if status.lower() == "dnd":
+        await bot.change_presence(status=discord.Status.dnd,activity=discord.Game(name=game))
+    if status.lower() == "invisible":
+        await bot.change_presence(status=discord.Status.invisible,activity=None)
+    if status.lower() == "streaming":
+        await bot.change_presence(activity=discord.Streaming(name=game))
 @bot.command()
 async def embed(ctx,*,flags):
     """Sends an embed.
