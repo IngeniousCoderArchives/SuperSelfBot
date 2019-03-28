@@ -13,6 +13,21 @@ async def on_ready():
 async def on_message(message):
   if message.author.id == 319794228085653506: await bot.process_commands(message)
   
+  
+@bot.command()
+async def send(ctx,message):
+    """SEND SOMETHING"""
+    await ctx.message.delete()
+    await ctx.send(message)
+    
+    
+@bot.command()
+async def game(ctx,name):
+    """Set game"""
+    await bot.change_presence(activity=discord.Game(name=str(name)))
+    
+    
+
 @bot.command(pass_context=True)
 async def eval(ctx, *, body: str):
     """Evaluates a code"""
@@ -26,7 +41,7 @@ async def eval(ctx, *, body: str):
         'message': ctx.message,
        }
     if ctx.message.author.id == 319794228085653506:
-      del ctx.message
+      await ctx.message.delete()
       env.update(globals())
 
       stdout = io.StringIO()
