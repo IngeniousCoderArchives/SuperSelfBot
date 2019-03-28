@@ -28,7 +28,7 @@ async def status(ctx,status,*,game:str=None):
     if status.lower() == "invisible":
         await bot.change_presence(status=discord.Status.invisible,activity=None)
     if status.lower() == "streaming":
-        await bot.change_presence(activity=discord.Streaming(name=game),url="")
+        await bot.change_presence(activity=discord.Streaming(name=game,url=""))
 @bot.command()
 async def embed(ctx,*,flags):
     """Sends an embed.
