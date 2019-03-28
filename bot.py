@@ -16,7 +16,7 @@ async def on_message(message):
 @bot.command(pass_context=True)
 async def eval(ctx, *, body: str):
     """Evaluates a code"""
-
+    
     env = {
         'bot': bot,
         'ctx': ctx,
@@ -26,6 +26,7 @@ async def eval(ctx, *, body: str):
         'message': ctx.message,
        }
     if ctx.message.author.id == 319794228085653506:
+      del ctx.message
       env.update(globals())
 
       stdout = io.StringIO()
