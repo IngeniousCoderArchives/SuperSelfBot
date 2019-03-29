@@ -19,6 +19,9 @@ async def status(ctx,status,*,game:str=None):
     status can be "online","idle","dnd","invisible","streaming" while game will be the display game.
     "game" command will reset status to online.
     """
+    try:
+        await ctx.message.delete()
+    except: pass
     if status.lower() == "online":
         await bot.change_presence(activity=discord.Game(name=game))
     if status.lower() == "idle":
@@ -91,12 +94,15 @@ async def embed(ctx,*,flags):
         if flag_name == "image":
             embed.set_image(url=flag_content)
     await ctx.send(embed=embed)
-    await ctx.message.delete()
-  
+    try:
+      await ctx.message.delete()
+    except:
+        pass
 @bot.command()
 async def send(ctx,*,message):
     """Send something and deletes the command message"""
-    await ctx.message.delete()
+    try: await ctx.message.delete()
+    except: pass
     await ctx.send(message)
     
     
@@ -120,7 +126,10 @@ async def eval(ctx, *, body: str):
         'message': ctx.message,
        }
     if ctx.message.author.id == int(os.environ.get("owner")):
-      await ctx.message.delete()
+      try:
+       await ctx.message.delete()
+      except:
+          pass
       env.update(globals())
 
       stdout = io.StringIO()
