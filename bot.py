@@ -3,15 +3,15 @@ import os
 from discord.ext import commands
 import io, traceback, textwrap
 from contextlib import redirect_stdout
-bot = commands.Bot(command_prefix=os.environ.get("prefix").replace("\"",""),description="An Instance of XtremeCoder's SuperSelfBot, https://github.com/IngeniousCoder/SuperSelfBot")
+bot = commands.Bot(command_prefix=os.environ.get("ssb_prefix").replace("\"",""),description="An Instance of XtremeCoder's SuperSelfBot, https://github.com/IngeniousCoder/SuperSelfBot")
 @bot.event
 async def on_ready():
-  await bot.change_presence(activity=discord.Game(name=str(os.environ.get("game"))))
+  await bot.change_presence(activity=discord.Game(name=str(os.environ.get("ssb_game"))))
   
   
 @bot.event
 async def on_message(message):
-  if message.author.id == int(os.environ.get("owner")): await bot.process_commands(message)
+  if message.author.id == int(os.environ.get("ssb_owner")): await bot.process_commands(message)
   
 @bot.command()
 async def status(ctx,status,*,game:str=None):
@@ -162,4 +162,4 @@ async def eval(ctx, *, body: str):
               pass
 
 
-bot.run(os.environ.get("token"))
+bot.run(os.environ.get("ssb_token"))

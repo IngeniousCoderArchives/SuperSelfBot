@@ -18,10 +18,10 @@ This bot is a simple bot that makes you online 24/7 (the robot version of your u
 
 ### Config Values 
 
-- `prefix` - The bot prefix
-- `owner` - The ID of the owner
-- `game` - Default Game
-- `token` - Bot Token
+- `ssb_prefix` - The bot prefix
+- `ssb_owner` - The ID of the owner
+- `ssb_game` - Default Game
+- `ssb_token` - Bot Token
 
 All configuration values **MUST** be set through Heroku Config Variables.
 ## Author
