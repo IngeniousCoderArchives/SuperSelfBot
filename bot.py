@@ -109,6 +109,8 @@ async def send(ctx,*,message):
 @bot.command()
 async def game(ctx,*,name):
     """Set game"""
+    try: await ctx.message.delete()
+    except: pass
     await bot.change_presence(activity=discord.Game(name=str(name)))
     
     
