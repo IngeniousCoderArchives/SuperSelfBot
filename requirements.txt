@@ -1,3 +1,4 @@
 git+https://github.com/IngeniousCoder/discord.py#egg=discord.py[voice]
 psutil
 pytz
+requests
